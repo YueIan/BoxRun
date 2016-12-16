@@ -1,0 +1,10 @@
+
+server.port: 8090
+
+spring.data.mongodb.database: test
+spring.data.mongodb.uri: mongodb://10.81.22.107:27017
+poolthreadsize: 15
+paths.uploadedFiles: C:\\raw
+
+spring.http.multipart.max-file-size: 128MB
+spring.http.multipart.max-request-size: 128MB
