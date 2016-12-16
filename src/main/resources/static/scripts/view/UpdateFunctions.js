@@ -11,13 +11,12 @@ function updateJobsGrid(){
 
             var label = Ext.getCmp('currentJobLabel');
             if (data.currentJobInfo) {
-               label.setText(data.currentJobInfo.name); 
+               label.setText(data.currentJobInfo.id + " " + data.currentJobInfo.name + " is running"); 
             } else {
                 label.setText("no job running.");
             } 
             
-            //console.log(data);
-            updateJobsGrid();
+            setTimeout(updateJobsGrid,5000);
         },
         error:function(xhr,textStatus){
             console.log('error');

@@ -20,13 +20,15 @@ Ext.define('App.view.JarsGrid', {
             text     : 'Box',
             width     : 100,
             sortable : false,
-            dataIndex: 'boxName'
+            dataIndex: 'boxName',
+            flex: 1
         },
         {
             text     : 'Class',
             width     : 200,
             sortable : true,
-            dataIndex: 'className'
+            dataIndex: 'className',
+            flex: 2
         }
     ],
     //height: 750,

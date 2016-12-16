@@ -2,8 +2,9 @@
 Ext.define('App.view.Jobs', {
     extend: 'Ext.data.Model',
     fields: [
-       {name: 'type', type: 'string'},
-       {name: 'name', type: 'string'}
+        {name: 'id', type: 'string'},
+        {name: 'type', type: 'string'},
+        {name: 'name', type: 'string'}
     ],
 });
 
@@ -17,16 +18,23 @@ Ext.define('App.view.JobsGrid', {
     id: 'jobsGrid',
     columns: [
         {
+            text     : 'Volume Id',
+            width     : 100,
+            sortable : false,
+            dataIndex: 'id',
+            flex: 2
+        },{
             text     : 'Job Type',
             width     : 100,
             sortable : false,
-            dataIndex: 'type'
-        },
-        {
+            dataIndex: 'type',
+            flex: 1
+        },{
             text     : 'Study Name',
             width     : 200,
             sortable : true,
-            dataIndex: 'name'
+            dataIndex: 'name',
+            flex: 1
         }
     ],
     //height: 350,

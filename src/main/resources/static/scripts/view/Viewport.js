@@ -9,30 +9,36 @@ Ext.define('App.view.Viewport', {
     ],*/
     items: [{
         region: 'north',
-        html: '<h1 class="x-panel-header">Page Title</h1>',
+        html: '<img src="box-running.jpg" alt="Box Running" height="42" width="42">',
         border: false,
         margins: '0 0 5 0'
     }, {
         region: 'west',
         collapsible: true,
+        split: true,
         title: 'Volume',
         xtype: 'volumetabpanel',
-        itemId: 'west'
+        itemId: 'west',
+        width: 900
     }, {
         region: 'south',
-        title: 'South Panel',
+        title: 'Current Job Running',
         collapsible: true,
-        html: 'Information goes here',
         split: true,
         height: 100,
-        minHeight: 100
+        minHeight: 100,
+        items:[{
+            xtype: 'label',
+            id: 'currentJobLabel',
+            text: 'My Awesome Field'
+        }]
     }, {
         region: 'east',
-        title: 'East Panel',
-        xtype: 'jobpanel',
+        title: 'Job',
+        xtype: 'jobsgrid',
         collapsible: true,
         split: true,
-        width: 450
+        width: 650
     }, {
         region: 'center',
         xtype: 'runjob', // TabPanel itself has no title

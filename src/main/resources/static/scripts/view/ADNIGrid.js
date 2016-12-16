@@ -10,13 +10,21 @@ Ext.define('App.view.ADNIModel', {
     ],
 });
 
+adniFields = [
+   {name: 'myid', type: 'string'},
+   {name: 'width', type: 'int'},
+   {name: 'height', type: 'int'},
+   {name: 'slice', type: 'int'},
+   {name: 'update_time', type: 'string'}
+];
+
 Ext.define('App.view.ADNIGrid', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.adnigrid',
-    store: Ext.create('Ext.data.ArrayStore', {
+    /*store: Ext.create('Ext.data.ArrayStore', {
         model: 'App.view.ADNIModel',
         data: []
-    }),
+    }),*/
     multiSelect: true,
     columns: [
         {

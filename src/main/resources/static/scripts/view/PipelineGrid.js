@@ -20,13 +20,15 @@ Ext.define('App.view.PipelineGrid', {
             text     : 'Pipeline',
             width     : 100,
             sortable : false,
-            dataIndex: 'pipelineName'
+            dataIndex: 'pipelineName',
+            flex: 1
         },
         {
             text     : 'Classes',
             width     : 200,
             sortable : true,
-            dataIndex: 'boxSteps'
+            dataIndex: 'boxSteps',
+            flex: 2
         }
     ],
     //height: 750,

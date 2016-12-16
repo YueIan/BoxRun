@@ -34,14 +34,13 @@ public class Run {
                 System.out.println("running " + id);
                 Class<?> theClass = Class.forName((String)(jarList.get(0).get("className")));
                 JobRunnable jobRunnable = (JobRunnable)theClass.newInstance();
-                jobRunnable.setMyid(id);
+                jobRunnable.setId(id);
                 JobQueueUtils.submit(jobRunnable);
             }
 
         } catch (ClassNotFoundException|InstantiationException|IllegalAccessException e){
             e.printStackTrace();
         }
-
         return runItem;
     }
 
@@ -79,7 +78,7 @@ public class Run {
 
                 for (Class theClass : theClassList){
                     JobRunnable jobRunnable = (JobRunnable)theClass.newInstance();
-                    jobRunnable.setMyid(id);
+                    jobRunnable.setId(id);
                     JobQueueUtils.submit(jobRunnable);
                 }
             }
@@ -93,14 +92,14 @@ public class Run {
 
     @RequestMapping(method = RequestMethod.GET, value = "/listJobQueue")
     public Object listJobQueue() {
-        try{
+        /*try{
             Thread.sleep(1000);
-        } catch (InterruptedException e){
-            e.printStackTrace();
-    }
+            } catch (InterruptedException e){
+                e.printStackTrace();
+        }*/
 
-    JobStatus jobStatus = new JobStatus();
-    jobStatus.setCurrentJobInfo(JobQueueUtils.getCurrentJob());
+        JobStatus jobStatus = new JobStatus();
+        jobStatus.setCurrentJobInfo(JobQueueUtils.getCurrentJob());
         jobStatus.setListWaitingJobs(JobQueueUtils.listWaitingJobs());
 
         return jobStatus;

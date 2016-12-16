@@ -23,6 +23,7 @@ public class JobQueue implements Runnable {
                 currentRunJobInfo = r.getJobInfo();
                 r.run();
             }
+            currentRunJobInfo.setId("");
             currentRunJobInfo.setName("No Job");
             currentRunJobInfo.setType("");
         }
