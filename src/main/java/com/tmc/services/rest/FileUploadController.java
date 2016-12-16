@@ -63,6 +63,8 @@ public class FileUploadController {
                 m = jarList.get(0);
             }
             m.put("className", uploadItem.getKlassName());
+            m.put("volumeType", uploadItem.getVolumeType());
+            m.put("outputCollection", uploadItem.getOutputCollection());
             m.put("jarPath", filepath);
             MongoDBDriver.batchInsert(m, "my-jar-store");
 

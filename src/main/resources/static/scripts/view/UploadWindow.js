@@ -25,6 +25,20 @@ Ext.define('App.view.uploadWindow', {
         allowBlank: false,
         anchor: '100%'
     },{
+        xtype: 'textfield',
+        name: 'volumeType',
+        fieldLabel: 'volume Type',
+        labelWidth: 80,
+        allowBlank: false,
+        anchor: '100%'
+    },{
+        xtype: 'textfield',
+        name: 'outputCollection',
+        fieldLabel: 'Output Collection',
+        labelWidth: 80,
+        allowBlank: false,
+        anchor: '100%'
+    },{
         xtype: 'filefield',
         name: 'file',
         fieldLabel: 'File',

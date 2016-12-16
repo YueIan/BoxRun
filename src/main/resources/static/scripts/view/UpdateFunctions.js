@@ -1,3 +1,5 @@
+var boxRunningJobId;
+
 function updateJobsGrid(){
 	$.ajax({
         url:'/listJobQueue',
@@ -11,7 +13,12 @@ function updateJobsGrid(){
 
             var label = Ext.getCmp('currentJobLabel');
             if (data.currentJobInfo) {
-               label.setText(data.currentJobInfo.id + " " + data.currentJobInfo.name + " is running"); 
+               label.setText(data.currentJobInfo.id + " " + data.currentJobInfo.name + " is running");
+               if (boxRunningJobId !== data.currentJobInfo.id) {
+                    boxRunningJobId = data.currentJobInfo.id;
+                    updateResultGrid('normal-result');
+                    updateResultGrid('ad-result');
+               }
             } else {
                 label.setText("no job running.");
             } 
@@ -113,6 +120,36 @@ function updatePipelineGrid(){
 function updateADNIDataGrid(type){
     $.ajax({
         url:'/listAllADNIStudies',
+        type:'GET', 
+        async:true, 
+        data:{
+            type: type
+        },
+        //timeout:5000,
+        dataType:'json',
+        beforeSend:function(xhr){
+        },
+        success:function(data,textStatus,jqXHR){
+            var grid = Ext.getCmp('volumeTabPanel');
+            var tabGrid = grid.getTabGrid(type);
+            tabGrid.getStore().removeAll();
+            tabGrid.getStore().add(data);
+            tabGrid.getView().refresh();
+        },
+        error:function(xhr,textStatus){
+            console.log('error')
+            console.log(xhr)
+            console.log(textStatus)
+        },
+        complete:function(){
+            console.log('complete')
+        }
+    });
+}
+
+function updateResultGrid(type){
+    $.ajax({
+        url:'/listAllADNIResults',
         type:'GET', 
         async:true, 
         data:{

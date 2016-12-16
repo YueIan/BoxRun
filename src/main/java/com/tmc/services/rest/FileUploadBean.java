@@ -10,5 +10,9 @@ public class FileUploadBean {
 
     private String klassName;
 
+    private String volumeType;
+
+    private String outputCollection;
+
     private MultipartFile file;
 }
